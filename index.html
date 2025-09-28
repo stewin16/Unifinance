@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaxWise - AI Tax & Finance Advisor</title>
+    <title>UniFinance - AI Tax & Finance Advisor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <!-- Landing Page -->
     <div id="landing-page">
         <header class="p-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">TaxWise</h1>
+            <h1 class="text-2xl font-bold">UniFinance</h1>
             <button id="login-nav-button" class="btn-primary text-white font-bold py-2 px-5 rounded-lg">Login</button>
         </header>
         <main class="text-center py-20 px-4">
-            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">Simplify Your Taxes, <br>Amplify Your Savings.</h2>
-            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">TaxWise is your AI-powered personal finance platform for intelligent tax filing and credit score management in India.</p>
+            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">Simplify Your Finances, <br>Amplify Your Savings.</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">UniFinance is your AI-powered personal finance platform for intelligent tax filing and credit score management in India.</p>
             <button id="get-started-button" class="mt-8 btn-primary text-white font-bold py-4 px-8 rounded-lg text-lg">Get Started for Free</button>
         </main>
         <section class="py-20 px-4">
@@ -42,12 +41,10 @@
         </section>
     </div>
 
-    <!-- Login/Signup Modal -->
     <div id="auth-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center">
         <div id="auth-box" class="w-full max-w-md p-8 space-y-6 rounded-2xl text-white relative">
             <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
             
-            <!-- Login Form -->
             <div id="login-view">
                 <div class="text-center">
                     <h1 class="text-3xl font-bold">Welcome Back</h1>
@@ -72,14 +69,13 @@
                 </p>
             </div>
 
-            <!-- Signup Form -->
             <div id="signup-view" class="hidden">
                  <div class="text-center">
                     <h1 class="text-3xl font-bold">Create Account</h1>
                     <p class="text-gray-300 mt-2">Get started with your financial journey.</p>
                 </div>
                 <form id="signup-form" class="space-y-6">
-                     <div>
+                    <div>
                         <label for="signup-username" class="block text-sm font-medium text-gray-300">Username</label>
                         <input id="signup-username" name="username" type="text" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
                     </div>
@@ -94,7 +90,7 @@
                     <div>
                         <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-4 rounded-lg">Sign Up</button>
                     </div>
-                     <p id="signup-error" class="text-red-400 text-sm text-center hidden"></p>
+                    <p id="signup-error" class="text-red-400 text-sm text-center hidden"></p>
                 </form>
                  <p class="text-center text-sm mt-4 text-gray-400">
                     Already have an account? <a href="#" id="show-login-link" class="font-medium text-green-400 hover:underline">Log In</a>
@@ -103,13 +99,11 @@
         </div>
     </div>
     
-    <!-- Main Application Container -->
     <div id="app-container" class="hidden flex h-screen w-full relative">
-        <!-- Sidebar -->
         <aside class="w-64 sidebar text-gray-300 flex-shrink-0 p-4 flex flex-col">
             <div>
                 <div class="text-2xl font-bold text-center py-4 border-b border-gray-700/50 text-white">
-                    TaxWise
+                    UniFinance
                 </div>
                 <nav class="space-y-2 mt-4">
                     <a href="#" id="nav-dashboard" class="nav-link active flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
@@ -142,7 +136,6 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="flex-1 p-6 lg:p-8 overflow-y-auto main-content">
             <div id="page-dashboard">
                 <h1 class="text-3xl font-bold text-main-header">Welcome Back, <span id="welcome-username">User</span>!</h1>
@@ -226,8 +219,8 @@
                     <p class="text-main-subheader mt-2">Generate a complete PDF summary of your financial analysis, including tax breakdown, CIBIL insights, and AI recommendations.</p>
                     <div class="mt-4">
                          <button id="download-pdf-button" class="btn-primary font-bold py-3 px-6 rounded-lg flex items-center space-x-2" disabled>
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-                             <span>Download PDF Summary</span>
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                               <span>Download PDF Summary</span>
                          </button>
                          <p id="pdf-note" class="text-sm text-gray-500 mt-2">Please upload and process documents first.</p>
                     </div>
@@ -271,23 +264,17 @@
 
         </main>
 
-        <!-- AI Chat Assistant Button -->
         <button id="ai-chat-button" class="fixed bottom-6 right-6 btn-primary w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-40">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
         </button>
 
-        <!-- AI Chat Modal -->
         <div id="ai-chat-modal" class="hidden fixed bottom-24 right-6 w-full max-w-md rounded-2xl shadow-2xl z-50 flex flex-col">
-            <!-- Header -->
             <div id="chat-header" class="flex items-center justify-between p-4 border-b border-gray-700 rounded-t-2xl">
-                <h3 class="text-lg font-semibold text-main-header">TaxWise AI Assistant</h3>
+                <h3 class="text-lg font-semibold text-main-header">UniFinance AI Assistant</h3>
                 <button id="close-chat-button" class="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
-            <!-- Messages -->
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col">
-                <!-- Messages will be added here -->
-            </div>
-            <!-- Prompt Starters -->
+                </div>
             <div id="chat-prompts" class="p-4 border-t border-gray-700">
                 <p class="text-sm text-gray-400 mb-2 text-center">Or try one of these</p>
                 <div class="flex flex-wrap gap-2 justify-center">
@@ -296,7 +283,6 @@
                     <button class="prompt-starter text-sm py-1 px-3 rounded-full">What is 80C?</button>
                 </div>
             </div>
-            <!-- Input Form -->
             <form id="chat-form" class="p-4 border-t border-gray-700 rounded-b-2xl">
                 <div class="flex items-center">
                     <input type="text" id="chat-input" placeholder="Ask a financial question..." class="w-full px-4 py-2 border bg-gray-800 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
@@ -309,16 +295,13 @@
 
     </div>
     
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    <!-- App Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
