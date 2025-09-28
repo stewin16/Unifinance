@@ -1,0 +1,7 @@
+Flask
+pandas
+Flask-Cors
+requests
+numpy
+gunicorn
+firebase_admin
