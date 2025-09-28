@@ -1,0 +1,143 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a; 
+    color: #e2e8f0;
+}
+ 
+/* Unified Dark Theme */
+#landing-page, #app-container, .main-content, .sidebar {
+    background: #0f172a;
+}
+
+/* Landing Page Styles with Background Image */
+#landing-page {
+    /* FIX: Added a background image with a dark overlay for text readability */
+    background: 
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Glassmorphism Card Style */
+.card, .feature-card, #auth-box {
+    background-color: rgba(30, 41, 59, 0.5); /* Semi-transparent slate */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+.card:hover, .feature-card:hover {
+    transform: translateY(-8px);
+    background-color: rgba(30, 41, 59, 0.8);
+    border-color: rgba(16, 185, 129, 0.5); /* Greenish border on hover */
+}
+
+/* Auth Modal Styles */
+#auth-modal {
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s ease-in-out;
+}
+.login-input {
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.login-input:focus {
+    border-color: #10b981; /* Emerald Green */
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+
+/* Main App Styles */
+.main-content { color: #d1d5db; }
+.text-main-header { color: #f9fafb; }
+.text-main-subheader { color: #9ca3af; }
+ 
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.btn-primary {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%); /* Emerald Green Gradient */
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+}
+.sidebar {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-link.active {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid #10b981;
+    color: #f9fafb;
+}
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+input[type="range"]::-webkit-slider-thumb {
+    background: #10b981;
+}
+input[type="range"]::-moz-range-thumb {
+    background: #10b981;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* AI Chat Styles */
+#ai-chat-modal {
+    background-color: #1f2937; /* Darker slate */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+}
+.chat-message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.user-message {
+    background-color: #10b981;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+.ai-message {
+    background-color: #374151; /* Gray-blue */
+    color: #e5e7eb;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+.prompt-starter {
+    background-color: transparent;
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    transition: all 0.2s ease;
+}
+.prompt-starter:hover {
+    background-color: #374151;
+    border-color: #6b7280;
+    color: #e5e7eb;
+}
+
