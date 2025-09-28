@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-   
+    
     // FIREBASE AND API CONFIGURATION
 
     const firebaseConfig = {
@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         measurementId: "G-HC42XP2H11"
     };
 
-   
+    
     const GEMINI_API_KEY = "AIzaSyBkv1dXN3-JALMDtEPiyEp4-tEkQx6-ogQ";
 
-   
+    
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let spendingChart = null;
     let currentUser = null;
 
-  
+    
     // AUTHENTICATION & PAGE VISIBILITY
     
     const showAuthModal = () => authModal.classList.remove('hidden');
@@ -163,13 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
         auth.signOut();
     });
 
-   
+    
     // AI CHAT (WITH DUAL API FALLBACK)
-   
+    
     const toggleChat = () => {
         aiChatModal.classList.toggle('hidden');
         if (!aiChatModal.classList.contains('hidden') && chatMessages.children.length === 0) {
-            addMessageToChat("Hello! I'm the TaxWise AI Assistant. How can I help?", 'ai');
+            addMessageToChat("Hello! I'm the UniFinance AI Assistant. How can I help?", 'ai');
         }
     };
     aiChatButton.addEventListener('click', toggleChat);
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
         try {
-           
+            
             const idToken = await currentUser.getIdToken();
             const response = await fetch('https://taxwise-api-unique.onrender.com/chat', {
                 method: 'POST',
@@ -280,9 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-   
+    
     // FILE UPLOAD (SECURE)
-   
+    
     document.getElementById('upload-button').addEventListener('click', () => document.getElementById('file-upload').click());
     document.getElementById('file-upload').addEventListener('change', (e) => {
         if (e.target.files.length > 0) handleFileUpload(e.target.files);
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-   
+    
     function updateAllUI(data) {
         updateDashboard(data.dashboard_data);
         updateTaxOptimizer(data.tax_analysis);
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 heightLeft -= pdfHeight;
             }
             
-            doc.save(`TaxWise_Financial_Summary_${new Date().toLocaleDateString('en-IN')}.pdf`);
+            doc.save(`UniFinance_Financial_Summary_${new Date().toLocaleDateString('en-IN')}.pdf`);
 
         } catch (error) {
             console.error("Error generating PDF:", error);
@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </style>
             <div class="report-wrapper">
                 <div class="header">
-                    <h1>TaxWise Financial Summary</h1>
+                    <h1>UniFinance Financial Summary</h1>
                     <p>Report Generated on: ${today}</p>
                 </div>
                 <div class="section">
@@ -599,10 +599,9 @@ document.addEventListener('DOMContentLoaded', () => {
                      <div class="recommendation-box">
                          <h3>CIBIL Score Improvement</h3>
                          <ul>${cibilRecsHTML}</ul>
-                     </div>
+                    </div>
                 </div>
             </div>
         `;
     }
 });
-
