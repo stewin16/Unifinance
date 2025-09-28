@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxWise - AI Tax & Finance Advisor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Landing Page -->
+    <div id="landing-page">
+        <header class="p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">TaxWise</h1>
+            <button id="login-nav-button" class="btn-primary text-white font-bold py-2 px-5 rounded-lg">Login</button>
+        </header>
+        <main class="text-center py-20 px-4">
+            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">Simplify Your Taxes, <br>Amplify Your Savings.</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-300">TaxWise is your AI-powered personal finance platform for intelligent tax filing and credit score management in India.</p>
+            <button id="get-started-button" class="mt-8 btn-primary text-white font-bold py-4 px-8 rounded-lg text-lg">Get Started for Free</button>
+        </main>
+        <section class="py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-12">Key Features</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <h4 class="text-xl font-bold mb-2">Smart Data Ingestion</h4>
+                        <p class="text-gray-300">Upload bank statements, credit card bills, and CSVs. Our AI automatically cleans, categorizes, and analyzes them for you.</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <h4 class="text-xl font-bold mb-2">AI Tax Optimizer</h4>
+                        <p class="text-gray-300">Simulate Old vs. New tax regimes and get actionable advice to legally maximize your rebates and deductions.</p>
+                    </div>
+                    <div class="feature-card p-6 rounded-xl text-center">
+                        <h4 class="text-xl font-bold mb-2">CIBIL Score Advisor</h4>
+                        <p class="text-gray-300">Understand the factors impacting your credit score and get personalized "what-if" scenarios to improve it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div id="auth-modal" class="hidden fixed inset-0 z-50 flex justify-center items-center">
+        <div id="auth-box" class="w-full max-w-md p-8 space-y-6 rounded-2xl text-white relative">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+            
+            <!-- Login Form -->
+            <div id="login-view">
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold">Welcome Back</h1>
+                    <p class="text-gray-300 mt-2">Login to access your dashboard.</p>
+                </div>
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-gray-300">Email</label>
+                        <input id="login-email" name="email" type="email" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-sm font-medium text-gray-300">Password</label>
+                        <input id="login-password" name="password" type="password" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-4 rounded-lg">Sign In</button>
+                    </div>
+                    <p id="login-error" class="text-red-400 text-sm text-center hidden"></p>
+                </form>
+                <p class="text-center text-sm mt-4 text-gray-400">
+                    Don't have an account? <a href="#" id="show-signup-link" class="font-medium text-green-400 hover:underline">Sign Up</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-view" class="hidden">
+                 <div class="text-center">
+                    <h1 class="text-3xl font-bold">Create Account</h1>
+                    <p class="text-gray-300 mt-2">Get started with your financial journey.</p>
+                </div>
+                <form id="signup-form" class="space-y-6">
+                     <div>
+                        <label for="signup-username" class="block text-sm font-medium text-gray-300">Username</label>
+                        <input id="signup-username" name="username" type="text" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
+                    </div>
+                    <div>
+                        <label for="signup-email" class="block text-sm font-medium text-gray-300">Email</label>
+                        <input id="signup-email" name="email" type="email" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
+                    </div>
+                    <div>
+                        <label for="signup-password" class="block text-sm font-medium text-gray-300">Password</label>
+                        <input id="signup-password" name="password" type="password" required class="login-input mt-1 block w-full px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-0">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn-primary w-full text-white font-bold py-3 px-4 rounded-lg">Sign Up</button>
+                    </div>
+                     <p id="signup-error" class="text-red-400 text-sm text-center hidden"></p>
+                </form>
+                 <p class="text-center text-sm mt-4 text-gray-400">
+                    Already have an account? <a href="#" id="show-login-link" class="font-medium text-green-400 hover:underline">Log In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Application Container -->
+    <div id="app-container" class="hidden flex h-screen w-full relative">
+        <!-- Sidebar -->
+        <aside class="w-64 sidebar text-gray-300 flex-shrink-0 p-4 flex flex-col">
+            <div>
+                <div class="text-2xl font-bold text-center py-4 border-b border-gray-700/50 text-white">
+                    TaxWise
+                </div>
+                <nav class="space-y-2 mt-4">
+                    <a href="#" id="nav-dashboard" class="nav-link active flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" id="nav-optimizer" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Tax Optimizer</span>
+                    </a>
+                    <a href="#" id="nav-cibil" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        <span>CIBIL Advisor</span>
+                    </a>
+                     <a href="#" id="nav-reports" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        <span>Reports</span>
+                    </a>
+                     <a href="#" id="nav-profile" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                        <span>Profile</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="mt-auto">
+                 <a href="#" id="logout-button" class="nav-link flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 lg:p-8 overflow-y-auto main-content">
+            <div id="page-dashboard">
+                <h1 class="text-3xl font-bold text-main-header">Welcome Back, <span id="welcome-username">User</span>!</h1>
+                <p class="text-main-subheader mt-1">Here's your financial overview for FY 2024-25.</p>
+
+                <div class="card mt-6 p-6" style="animation-delay: 100ms;">
+                    <h2 class="text-xl font-semibold text-main-header">Get Started</h2>
+                    <p class="text-main-subheader mt-2">Upload your bank statements, credit card bills, or CSV files to get personalized insights.</p>
+                    <div class="mt-4">
+                        <input type="file" id="file-upload" class="hidden" multiple accept=".csv, .xlsx, .xls">
+                        <button id="upload-button" class="btn-primary font-bold py-3 px-6 rounded-lg flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                            <span>Upload Documents</span>
+                        </button>
+                        <div id="upload-status" class="mt-3 text-sm"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                    <div class="card p-5 flex flex-col justify-between" style="animation-delay: 200ms;">
+                        <div>
+                            <h3 class="text-main-subheader font-medium">Projected Tax Liability</h3>
+                             <p class="text-3xl font-bold text-main-header mt-2">₹ <span id="tax-liability">0</span></p>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1" id="tax-regime-label">Upload documents to analyze</p>
+                    </div>
+                    <div class="card p-5 flex flex-col justify-between" style="animation-delay: 300ms;">
+                        <div>
+                             <h3 class="text-main-subheader font-medium">Estimated CIBIL Score</h3>
+                             <div id="cibil-score-display" class="flex items-center mt-2">
+                                 <p class="text-3xl font-bold text-green-400"><span id="cibil-score">0</span></p>
+                             </div>
+                             <div id="cibil-loader" class="hidden"><div class="loader"></div></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1" id="cibil-status">Awaiting analysis</p>
+                    </div>
+                    <div class="card p-5 flex flex-col justify-between" style="animation-delay: 400ms;">
+                        <div>
+                             <h3 class="text-main-subheader font-medium">Total Investments (80C)</h3>
+                             <p class="text-3xl font-bold text-main-header mt-2">₹ <span id="investments-80c">0</span></p>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-1">Limit: ₹ 1,50,000</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mt-6">
+                    <div class="lg:col-span-2 card p-6" style="animation-delay: 500ms;">
+                        <h3 class="text-lg font-semibold text-main-header">Spending Breakdown</h3>
+                        <div class="mt-4" style="height: 250px;">
+                            <canvas id="spending-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-3 card p-6" style="animation-delay: 600ms;">
+                        <h3 class="text-lg font-semibold text-main-header">Recent Transactions</h3>
+                        <div id="recent-transactions" class="mt-4 space-y-3 h-64 overflow-y-auto pr-2">
+                            <p class="text-main-subheader text-center pt-10">Upload documents to see transactions.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div id="investment-opportunities" class="card mt-6 p-6" style="animation-delay: 700ms;"></div>
+            </div>
+
+            <div id="page-optimizer" class="hidden">
+                <h1 class="text-3xl font-bold text-main-header">Tax Optimizer</h1>
+                <div id="tax-optimizer-content" class="mt-6">
+                    <p class="text-main-subheader">Upload your financial documents on the dashboard to get a detailed tax comparison.</p>
+                </div>
+            </div>
+
+            <div id="page-cibil" class="hidden">
+                <h1 class="text-3xl font-bold text-main-header">CIBIL Advisor</h1>
+                 <div id="cibil-advisor-content" class="mt-6">
+                    <p class="text-main-subheader">Upload your financial documents on the dashboard to get personalized CIBIL score advice.</p>
+                </div>
+            </div>
+            
+            <div id="page-reports" class="hidden">
+                <h1 class="text-3xl font-bold text-main-header">Download Reports</h1>
+                <div class="card mt-6 p-6">
+                    <h2 class="text-xl font-semibold text-main-header">Financial Summary Report</h2>
+                    <p class="text-main-subheader mt-2">Generate a complete PDF summary of your financial analysis, including tax breakdown, CIBIL insights, and AI recommendations.</p>
+                    <div class="mt-4">
+                         <button id="download-pdf-button" class="btn-primary font-bold py-3 px-6 rounded-lg flex items-center space-x-2" disabled>
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                             <span>Download PDF Summary</span>
+                         </button>
+                         <p id="pdf-note" class="text-sm text-gray-500 mt-2">Please upload and process documents first.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="page-profile" class="hidden">
+                <h1 class="text-3xl font-bold text-main-header">Profile & Status</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="card p-6">
+                        <h2 class="text-xl font-semibold text-main-header mb-4">User Profile</h2>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-20 rounded-full bg-gray-700 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-main-header" id="profile-username">User</p>
+                                <p class="text-main-subheader" id="profile-email">user@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card p-6">
+                        <h2 class="text-xl font-semibold text-main-header mb-4">Account Status</h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="font-medium text-main-subheader">Subscription Tier:</span>
+                                <span class="font-bold text-green-300 bg-green-500/10 px-3 py-1 rounded-full text-sm">Free Tier</span>
+                            </div>
+                             <div class="flex justify-between">
+                                <span class="font-medium text-main-subheader">Account Status:</span>
+                                <span class="font-bold text-blue-400">Active</span>
+                            </div>
+                             <div class="flex justify-between">
+                                <span class="font-medium text-main-subheader">Member Since:</span>
+                                <span class="font-bold text-main-header" id="profile-member-since">Sep 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- AI Chat Assistant Button -->
+        <button id="ai-chat-button" class="fixed bottom-6 right-6 btn-primary w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-40">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+        </button>
+
+        <!-- AI Chat Modal -->
+        <div id="ai-chat-modal" class="hidden fixed bottom-24 right-6 w-full max-w-md rounded-2xl shadow-2xl z-50 flex flex-col">
+            <!-- Header -->
+            <div id="chat-header" class="flex items-center justify-between p-4 border-b border-gray-700 rounded-t-2xl">
+                <h3 class="text-lg font-semibold text-main-header">TaxWise AI Assistant</h3>
+                <button id="close-chat-button" class="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+            </div>
+            <!-- Messages -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col">
+                <!-- Messages will be added here -->
+            </div>
+            <!-- Prompt Starters -->
+            <div id="chat-prompts" class="p-4 border-t border-gray-700">
+                <p class="text-sm text-gray-400 mb-2 text-center">Or try one of these</p>
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="prompt-starter text-sm py-1 px-3 rounded-full">Explain tax regimes</button>
+                    <button class="prompt-starter text-sm py-1 px-3 rounded-full">How to improve CIBIL?</button>
+                    <button class="prompt-starter text-sm py-1 px-3 rounded-full">What is 80C?</button>
+                </div>
+            </div>
+            <!-- Input Form -->
+            <form id="chat-form" class="p-4 border-t border-gray-700 rounded-b-2xl">
+                <div class="flex items-center">
+                    <input type="text" id="chat-input" placeholder="Ask a financial question..." class="w-full px-4 py-2 border bg-gray-800 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-white">
+                    <button type="submit" class="ml-3 btn-primary text-white p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- App Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
